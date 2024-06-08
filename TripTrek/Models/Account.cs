@@ -7,7 +7,7 @@ namespace TripTrek.Models;
 
 public partial class Account
 {
-    static int newId = 200;
+    static int newId = 300;
     public int Id { get; set; } = newId++;
 
     public string Email { get; set; } = null!;

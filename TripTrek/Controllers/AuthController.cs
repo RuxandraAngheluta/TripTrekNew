@@ -37,11 +37,11 @@ namespace TripTrek.Controllers
 
             var user = new User
             {
-               FirstName = userRegistrationDto.FirstName,
+                FirstName = userRegistrationDto.FirstName,
                 LastName = userRegistrationDto.LastName,
                 BirthDate = userRegistrationDto.BirthDate,
                 Email = userRegistrationDto.Email,
-                Password=account.Password,
+                Password = account.Password,
                 Account = account
             };
 
@@ -61,8 +61,8 @@ namespace TripTrek.Controllers
                 return BadRequest("Invalid username or password");
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.AccountId == account.Id);
-            // return Ok(new { Token = await CreateTokenAsync(user) });
-            return Ok();
+             return Ok(new { Token = await CreateTokenAsync(user) });
+            //return Ok();
         }
 
         private async Task<string> CreateTokenAsync(User user)
